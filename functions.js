@@ -1,32 +1,28 @@
 const functions = {
-    // add: (num1, num2) => num1 + num2,
-    // isNull: () => null,
-    // checkValue: x => x,
-    // createUser: () => {
-    //     const user = { firstName: 'Juril'}
-    //     user['lastName'] = 'Digamon'
-    //     return user;
-    // },
-    randomizer: (num) => Math.floor((Math.random() * num) + 1),
-    User: (num) => {
-        const resourceList = [];
-        const durationList = [];
-        const isFree = false;
-      
-        const userResources = (resource) => {
-          for(var i = 0; i < resourceList.length; i++){
-            if(resource === resourceList[i]){
-              return false;
-            }
-          }
-          resourceList.push(resource);
-          return true;
-        }
-      
-        userDuration = (duration) => {
-          durationList.push(duration);
-        }
+    // randomizer: (num) => Math.floor((Math.random() * num) + 1)
+    getN: (arr) => {
+      return arr.length
+    },
+    getSum: (arr) => {
+      return arr.reduce(function(a, b) {return a + b})
+    },
+    getMean: (arr) => {
+      return functions.getSum(arr) / functions.getN(arr)
+    },
+    getStDev: (arr) => {
+      var sum = 0
+      var stdev = 0
+      var mean = functions.getMean(arr)
+      for(i = 0; i < functions.getN(arr); i++) {
+        sum += Math.pow((arr[i] - mean), 2)
       }
+      stdev = functions.getSqrt(sum / functions.getN(arr))
+      return stdev
+    },
+    getSqrt: (n) => {
+      return Math.sqrt(n)
+    }
 }
+
 
 module.exports = functions;

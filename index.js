@@ -4,11 +4,6 @@ const functions = {
   randomizer: (num) => Math.floor((Math.random() * num) + 1)
 }
 
-// function Randomizer(num){
-//   var result = ;
-//   return result;
-// }
-
 function Sort(a, b) {
     return a - b;
 }
@@ -17,7 +12,7 @@ function Resource(num){
   this.isBusy = false;
 }
 
-function User(num){
+function User(){
   this.resourceList = [];
   this.durationList = [];
   this.isFree = false;
